@@ -2,7 +2,7 @@ class ResponsesController < ApplicationController
   before_action :ensure_current_user
 
   def index
-    render json: Response.all.to_json
+    render json: Response.all, each_serializer: ResponseSerializer
   end
 
   def create
