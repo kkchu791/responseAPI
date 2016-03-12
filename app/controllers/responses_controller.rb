@@ -6,10 +6,16 @@ class ResponsesController < ApplicationController
   end
 
   def create
-    Response.create(params[:response])
+    Response.create(response_params)
   end
 
   def show
     render json: Response.where(id: params[:id]).first.to_json
+  end
+
+  private
+
+  def response_params
+    params.permit(:reply)
   end
 end
