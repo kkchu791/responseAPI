@@ -1,16 +1,36 @@
 class ResponsesController < ApplicationController
-  before_action :ensure_current_user
-
   def index
-    render json: Response.all, each_serializer: ResponseSerializer
-  end
-
-  def create
-    Response.create(response_params)
+    responses = Response.all
+    render json: responses
   end
 
   def show
-    render json: Response.where(id: params[:id]).first.to_json
+    response = Response.find(params[:id])
+    render json: response
+  end
+
+  def create
+    response = Response.new(response_params)
+    if response.save
+      render json: response.lines, status: 201
+    else
+      render json: '400', status: 400
+    end
+  end
+
+  def update
+    response = Response.find(params[:id])
+    if response.lines.first.update_attributes(line_params)
+      render json: response.lines
+    else
+      render json: '400', status: 400
+    end
+  end
+
+  def destroy
+    response = Response.find(params[:id])
+    response.destroy
+    head 204
   end
 
   private
