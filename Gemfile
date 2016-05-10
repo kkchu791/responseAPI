@@ -4,6 +4,7 @@ gem 'rails', '4.2.5.1'
 gem 'bcrypt'
 gem "active_model_serializers", github: "rails-api/active_model_serializers"
 gem 'figaro'
+gem 'rack-cors'
 
 group :development, :test do
   gem 'byebug'
