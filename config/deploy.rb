@@ -1,9 +1,11 @@
 # config valid only for current version of Capistrano
-lock '3.4.0'
+lock '3.5.0'
 
-set :rvm_ruby_version, '2.2.2@quotes'
-set :application, 'quotes'
-set :repo_url, 'git@github.com:rlcheng/quotes.git'
+# set :rvm_ruby_version, '2.3.0@responseAPI'
+set :application, 'responseAPI'
+set :repo_url, 'git@github.com:kkchu791/responseAPI.git'
+# set :repo_url, 'https://kkchu791:Slowgold88d@github.com/kkchu791/responseAPI'
+
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -22,6 +24,8 @@ set :repo_url, 'git@github.com:rlcheng/quotes.git'
 
 # Default value for :pty is false
 # set :pty, true
+# set :default_env, { rvm_bin_path: '~/.rvm/bin' }
+set :tmp_dir, "/home/response/tmp"
 
 # Default value for :linked_files is []
 # set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
